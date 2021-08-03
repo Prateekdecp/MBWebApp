@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/price.css' %}">
+
+    <br><br><br><!-- <br style="line-height:50%;"> -->
+    <!-- Navbar ends here  -->
+    <!-- The inner content starts here -->
+
+    <p style="text-align:center">We scraped out these resuts for <span
+            style="color:rgb(42, 149, 236)">{{ prd_name }}</span></p>
+
+    <div class="columns">
+        <ul class="price">
+            <li class="header">AMAZON</li>
+            <!-- <li class="grey">$ 9.99 / year</li>
+            <li>10GB Storage</li> -->
+            <li><img src="{% static 'images/amazon.png' %}"/></li>
+            <li class="grey1">{{ thread_data.amazon.name }}</li>
+            <li class="grey1">{{ thread_data.amazon.price }}</li>
+
+            <li class="grey"><a href="{{ amazon_url }}" class="button">Buy Now</a></li>
+        </ul>
+    </div>
+
+    <div class="columns">
+        <ul class="price">
+            <li class="header">FLIPKART</li>
+
+            <li><img src="{% static 'images/flipkart.png' %}"/></li>
+            <li class="grey1">{{ thread_data.flipkart.name }}</li>
+            <li class="grey1">{{ thread_data.flipkart.price }}</li>
+            <li class="grey"><a href="{{ thread_data.flipkart.prd_link }}" class="button">Buy Now</a></li>
+        </ul>
+    </div>
+
+    <div class="columns">
+        <ul class="price">
+            <li class="header">TATA CLIQ</li>
+            <li><img src="{% static 'images/tata_click.png' %}" style="height: 297px;width: 400px"/></li>
+
+                <li class="grey1">{{ thread_data.tata.name }}</li>
+                <li class="grey1">{{ thread_data.tata.price }}</li>
+
+                <li class="grey"><a href="{{ paytm_mall_url }}" class="button">Buy Now</a></li>
+
+        </ul>
+    </div>
+
+    <br>
+    </html>
+
+{% endblock %}
